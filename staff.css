@@ -16,17 +16,15 @@
 }
 
 .staff_label {
-    font-family: 'Arial', sans-serif;
-    font-weight: 700;
+    font-family: 'Gimolla', serif;
+    font-weight: normal;
 
     color: #fff;
    
-   text-shadow:
-    0 1px 3px rgba(70,55,60,.45),
-    0 0 8px rgba(255,255,255,.25);
+  text-shadow: 0 1px 4px rgba(65,45,50,.30);
 
-    font-size: 12px;
-    letter-spacing: 5px;
+    font-size: 15px;
+    letter-spacing: 4px;
 
     text-transform: uppercase;
 
