@@ -16,20 +16,31 @@
 }
 
 .staff_label {
-    font-family: 'Gimolla', serif;
-    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 7px;
 
-    color: #fff;
-   
-  text-shadow: 0 1px 4px rgba(65,45,50,.30);
+    font-family: Arial, sans-serif;
+    font-size: 8px;
+    font-weight: 400;
 
-    font-size: 15px;
-    letter-spacing: 4px;
+    color: rgba(255,255,255,.95);
 
+    letter-spacing: 3px;
     text-transform: uppercase;
 
-    margin-right: -4px;
-    margin-bottom: 4px;
+    margin-right: -3px;
+    margin-bottom: 5px;
+
+    text-shadow: 0 1px 3px rgba(70,50,55,.35);
+}
+
+.staff_label::before,
+.staff_label::after {
+    content: "";
+    width: 12px;
+    height: 1px;
+    background: rgba(255,255,255,.65);
 }
 
 
