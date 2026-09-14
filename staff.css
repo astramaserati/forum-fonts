@@ -37,58 +37,45 @@
 .staff_moon {
     width: 18px;
     height: 18px;
-    border-radius: 50%;
     position: relative;
-    background: transparent;
-}
-
-.staff_moon::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
     border-radius: 50%;
+
     background: rgba(255,255,255,.95);
 
-    z-index: 1;
+    box-shadow:
+        0 0 5px rgba(255,255,255,.55),
+        0 0 12px rgba(255,255,255,.20);
 
-    animation: staffMoonAnimation 3.2s linear infinite alternate;
+    overflow: hidden;
 }
 
 .staff_moon_cover {
     position: absolute;
-    inset: 0;
 
-    width: 100%;
-    height: 100%;
+    width: 18px;
+    height: 18px;
+
+    top: 0;
+    left: 0;
 
     border-radius: 50%;
 
-    background: #302d35;
+    background: #c9b2b4;
 
-    z-index: 2;
+    animation: staffMoonAnimation 3.2s ease-in-out infinite alternate;
 }
 
 @keyframes staffMoonAnimation {
 
     0% {
-        transform: translateX(4px) scale(.9);
-        box-shadow: none;
+        transform: translateX(-13px);
     }
 
     50% {
-        transform: translateX(0) scale(1.02);
-
-        box-shadow:
-            0 0 4px rgba(255,255,255,.8),
-            0 0 14px rgba(255,255,255,.35);
+        transform: translateX(0);
     }
 
     100% {
-        transform: translateX(-4px) scale(.9);
-        box-shadow: none;
+        transform: translateX(13px);
     }
 }
