@@ -3,55 +3,84 @@
    ========================================= */
 
 
+/* GRILLE
+----------------------------------------- */
+
 .userlist {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 18px;
+    width: 100%;
+    margin-top: 30px;
 }
 
+
+/* CARTE
+----------------------------------------- */
+
 .sins-member {
+    position: relative;
+    display: block;
+
     height: 300px;
-    border-radius: 11px;
-}
 
-.sins-member {
-    border: 1px solid rgba(255,255,255,.78);
+    overflow: hidden;
+    isolation: isolate;
+
+    border: 1px solid rgba(255, 255, 255, .78);
+    border-radius: 11px;
+
+    background: rgba(250, 248, 248, .35);
+
     box-shadow:
         0 8px 25px rgba(45, 38, 48, .05),
-        inset 0 0 20px rgba(255,255,255,.08);
+        inset 0 0 20px rgba(255, 255, 255, .08);
+
+    text-decoration: none;
+
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease;
 }
 
+
+/* GRANDE IMAGE FANTÔME
+----------------------------------------- */
 
 .sins-member-bg {
     position: absolute;
+
     inset: -15px;
+
     z-index: -2;
 
     opacity: .28;
 
-    filter: grayscale(100%) blur(6px);
+    filter:
+        grayscale(100%)
+        blur(6px);
+
     transform: scale(1.15);
+
+    pointer-events: none;
+
+    transition:
+        opacity .45s ease,
+        transform .7s ease;
 }
 
 .sins-member-bg img {
+    display: block;
+
     width: 100%;
     height: 100%;
+
     object-fit: cover;
-}
-
-.sins-member::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-
-    background: rgba(250, 247, 247, .38);
-
-    pointer-events: none;
+    object-position: center;
 }
 
 
-/* VOILE CLAIR
+/* VOILE LAITEUX
 ----------------------------------------- */
 
 .sins-member::before {
@@ -65,51 +94,71 @@
     background:
         linear-gradient(
             135deg,
-            rgba(255,255,255,.56),
-            rgba(245,240,240,.28)
+            rgba(255, 255, 255, .48),
+            rgba(245, 240, 240, .24)
         );
 
     pointer-events: none;
 }
 
 
+/* PSEUDO
+----------------------------------------- */
+
 .sins-member-name {
+    position: absolute;
+
     top: 27px;
     left: 26px;
     right: 20px;
+
+    z-index: 2;
 
     font-family: "Gimolla", serif;
     font-size: 32px;
     font-weight: 400;
     line-height: 1;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
+/* LIGNE + PETITE LUNE
+----------------------------------------- */
+
 .sins-member-line {
     position: absolute;
-    top: 82px;
+
+    top: 78px;
     left: 26px;
     right: 26px;
 
+    z-index: 2;
+
     display: flex;
     align-items: center;
-    gap: 10px;
 
-    height: auto;
+    gap: 9px;
+
+    height: 14px;
 
     background: none;
 }
 
 .sins-member-line i {
     display: block;
+
     height: 1px;
 
-    background: currentColor;
+    background: #5f5961;
+
     opacity: .45;
 }
 
 .sins-member-line i:first-child {
-    width: 105px;
+    width: 106px;
 }
 
 .sins-member-line i:last-child {
@@ -117,45 +166,53 @@
 }
 
 .sins-member-line span {
+    flex: 0 0 auto;
+
     font-family: Georgia, serif;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1;
 
-    opacity: .7;
+    color: #5f5961;
+
+    opacity: .75;
 
     transform: translateY(-1px);
 }
 
 
-/* AVATAR CENTRAL
+/* AVATAR ROND
 ----------------------------------------- */
 
 .sins-member-avatar {
     position: absolute;
 
-    width: 125px;
-    height: 125px;
-
     left: 50%;
-    top: 57%;
+    top: 61%;
+
+    z-index: 2;
+
+    width: 145px;
+    height: 145px;
 
     transform: translate(-50%, -50%);
 
-    border-radius: 50%;
-
     overflow: hidden;
 
-    border: 1px solid rgba(255,255,255,.85);
+    border: 1px solid rgba(255, 255, 255, .9);
+    border-radius: 50%;
 
     box-shadow:
-        0 5px 20px rgba(0,0,0,.08);
+        0 5px 20px rgba(0, 0, 0, .07);
 }
 
 .sins-member-avatar img {
+    display: block;
+
     width: 100%;
     height: 100%;
 
     object-fit: cover;
+    object-position: center;
 
     filter: grayscale(100%);
 
@@ -165,7 +222,7 @@
 }
 
 
-/* PETITE LUNE
+/* PETITE LUNE EN BAS
 ----------------------------------------- */
 
 .sins-member-moon {
@@ -174,35 +231,40 @@
     right: 18px;
     bottom: 15px;
 
-    font-family: serif;
-    font-size: 18px;
+    z-index: 2;
 
-    color: rgba(255,255,255,.85);
+    font-family: Georgia, serif;
+    font-size: 23px;
+    line-height: 1;
 
-    opacity: .9;
+    color: rgba(255, 255, 255, .95);
+
+    opacity: .95;
+
+    text-shadow:
+        0 1px 5px rgba(0, 0, 0, .06);
 }
 
 
-/* PREMIER MINI HOVER
+/* HOVER TRÈS LÉGER
 ----------------------------------------- */
-
-.sins-member {
-    transition:
-        transform .4s ease,
-        background .4s ease;
-}
 
 .sins-member:hover {
     transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 30px rgba(45, 38, 48, .08),
+        inset 0 0 20px rgba(255, 255, 255, .08);
+}
+
+.sins-member:hover .sins-member-bg {
+    opacity: .33;
+    transform: scale(1.18);
 }
 
 .sins-member:hover .sins-member-avatar img {
     filter: grayscale(70%);
     transform: scale(1.035);
-}
-
-.sins-member:hover .sins-member-bg {
-    opacity: .21;
 }
 
 
@@ -212,7 +274,7 @@
 @media (max-width: 1000px) {
 
     .userlist {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
 }
