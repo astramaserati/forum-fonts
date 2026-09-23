@@ -107,21 +107,63 @@
 }
 
 
-/* PETITE LIGNE SOUS LE PSEUDO
+/* LIGNE + LUNE SOUS LE PSEUDO
 ----------------------------------------- */
 
 .sins-member-line {
     position: absolute;
-
-    top: 60px;
+    top: 62px;
     left: 25px;
-    right: 25px;
+
+    width: 150px;
+    height: 12px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: currentColor;
+}
+
+/* les deux petits traits */
+.sins-member-line::before,
+.sins-member-line::after {
+    content: "";
+    display: block;
 
     height: 1px;
-
     background: currentColor;
 
-    opacity: .35;
+    opacity: .45;
+}
+
+.sins-member-line::before {
+    width: 72px;
+}
+
+.sins-member-line::after {
+    width: 42px;
+}
+
+/* petite lune au centre */
+.sins-member-line {
+    font-size: 0;
+}
+
+.sins-member-line::after {
+    /* on garde le deuxième trait */
+}
+
+.sins-member-line span {
+    flex: 0 0 auto;
+
+    font-family: serif;
+    font-size: 12px;
+    line-height: 1;
+
+    opacity: .65;
+
+    transform: translateY(-1px);
 }
 
 
